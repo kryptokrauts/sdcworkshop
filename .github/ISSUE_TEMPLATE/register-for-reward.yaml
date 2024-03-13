@@ -1,0 +1,36 @@
+name: Register for XPR Reward Task
+description: Fill out in order to become eligible for claiming an XPR reward by developing a Smart Contract.
+title: "[REGISTER]: <xpr account>"
+labels: ["registration"]
+assignees:
+  - marc0olo
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please provide us the required information. Thanks for participating in our workshop! :-)
+  - type: input
+    id: xpr-account
+    attributes:
+      label: XPR Account
+      description: Your XPR account name.
+    validations:
+      required: true
+  - type: dropdown
+    id: participation-type
+    attributes:
+      label: On-Site vs. Remote
+      description: Did you participate on-site or remote?
+      options:
+        - On-Site
+        - Remote
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: message
+    attributes:
+      label: Feedback
+      description: Feel free to provide some feedback to us.
+    validations:
+      required: false
