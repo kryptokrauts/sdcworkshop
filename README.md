@@ -32,9 +32,10 @@ The solution needs to be implemented, deployed and executed within 30 days after
 Following steps are required in order to allow participants to claim the XPR reward:
 1. Developer [registers here](../../issues/new?assignees=marc0olo&labels=registration&projects=&template=register-for-reward.yaml&title=%5BREGISTER%5D%3A+<xpr+account>) for the reward task.
 1. Workshop facilitator adds the XPR account of the developer to the list of eligible developers in the [reward-contract](./reward-contract) deployed at the [sdcworkshop](https://explorer.xprnetwork.org/account/sdcworkshop?loadContract=true&tab=Tables&limit=100) account.
-1. (Optional, recommended) Developer provides a separate account where the homework contract which is used to claim the reward will be deployed at.
-    - This can be done by calling the [`setctacc`](https://explorer.xprnetwork.org/account/sdcworkshop?loadContract=true&tab=Actions&limit=100&action=setctacc) action
 1. Developer forks this repository and implements the missing logic in the [homework-contract](./homework-contract) which is required to claim the share of the reward pool.
+1. (Optional, recommended) Developer provides a separate account where the homework contract which is used to claim the reward will be deployed at.
+    - It is recommended to set up a separate account via CLI which is used to deploy the contract.
+    - This can be done by calling the [`setctacc`](https://explorer.xprnetwork.org/account/sdcworkshop?loadContract=true&tab=Actions&limit=100&action=setctacc) action.
 1. Developer deploys the homework-contract at the registered (or separate, self-defined) account which should be used to claim the reward.
 1. Developer performs a transaction with the homework-contract action that will trigger the claim and distribute the XPR to the account of the homework-contract.
 
