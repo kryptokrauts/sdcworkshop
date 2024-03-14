@@ -16,21 +16,10 @@ body:
       description: Your XPR account name.
     validations:
       required: true
-  - type: dropdown
-    id: participation-type
-    attributes:
-      label: On-Site vs. Remote
-      description: Did you participate on-site or remote?
-      options:
-        - On-Site
-        - Remote
-      default: 0
-    validations:
-      required: true
   - type: textarea
     id: message
     attributes:
-      label: Feedback
+      label: Feedback (optional)
       description: Feel free to provide some feedback to us.
     validations:
       required: false
