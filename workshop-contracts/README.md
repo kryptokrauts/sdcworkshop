@@ -62,6 +62,7 @@ yarn build:tknreceiver && yarn test:tknreceiver
         - Optionally, you can choose to encrypt your private key / mnemonic
         - Make sure to backup your private key / mnemonic securely!
     - For testnet you can use any E-Mail address, confirmation code is always `000000`
+    - For mainnet you need to provide an E-Mail address where you have access in order to receive and confirm the correct confirmation code
 
     ```sh
     Enter email for verification code: test@notneeded.com
