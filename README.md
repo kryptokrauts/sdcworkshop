@@ -23,7 +23,9 @@ A paper will be handed out to each particpant that contains 2 QR codes:
 - Link to the Gift Card in order to claim the `3000.0000 XPR`
 
 ### Development of Smart Contracts (Homework)
-A total amount of `900000.0000 XPR` is reserved to be claimed by workshop participants by developing a Smart Contract that executes a specific logic which will cause the [reward-contract](./reward-contract) deployed at [sdcworkshop](https://explorer.xprnetwork.org/account/sdcworkshop?loadContract=true&tab=Tables&limit=100) account.
+A total amount of `900000.0000 XPR` is reserved to be claimed by workshop participants.
+
+Workshop participants can develop a Smart Contract that executes a specific logic which will cause the [reward-contract](./reward-contract) deployed at [sdcworkshop](https://explorer.xprnetwork.org/account/sdcworkshop?loadContract=true&tab=Tables&limit=100) account to distribute an equal share of the XPR reward pool.
 
 Any workshop participant can register for the homework task by creating an issue using [this form](../../issues/new?assignees=marc0olo&labels=registration&projects=&template=register-for-reward.yaml&title=%5BREGISTER%5D%3A+<xpr+account>) and providing their XPR account.
 
