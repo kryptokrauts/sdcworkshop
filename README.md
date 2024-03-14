@@ -51,7 +51,7 @@ Following steps are required in order to allow participants to claim the XPR rew
     - `10 * 45000.0000 XPR = 450000.0000 XPR` will be returned to [xprgrants](https://explorer.xprnetwork.org/account/xprgrants)
 
 ## Links & Resources
-- [Workshop Slides](./resources/20240316_sc-development-typescript-xpr-network.pdf)
+- [Workshop Slides](.slides/20240316_sc-development-typescript-xpr-network.pdf)
 - [XPR Network Development](https://xprnetwork.org)
     - [Discussion (Telegram)](https://t.me/XPRNetwork/935158)
     - [GitHub](https://github.com/XPRNetwork)
