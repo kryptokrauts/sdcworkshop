@@ -1,0 +1,32 @@
+{
+    "name": "sdc-reward-contracts",
+    "version": "1.0.0",
+    "type": "module",
+    "repository": "https://github.com/kryptokrauts/sdcworkshop",
+    "license": "Apache-2.0",
+    "scripts": {
+        "build": "run-p build:*",
+        "build:rewardpool": "proton-asc xpr-reward-pool/xpr-reward-pool.contract.ts",
+        "build:homework": "proton-asc homework/homework.contract.ts",
+        "test": "run-p test:*",
+        "test:rewardpool": "mocha -s 250 xpr-reward-pool/*.spec.ts -r ts-node/register --timeout 10000",
+        "test:homework": "mocha -s 250 homework/*.spec.ts -r ts-node/register --timeout 10000",
+        "format": "prettier -w .",
+        "format:check": "prettier -c .",
+        "clean": "rm -rf **/target"
+    },
+    "devDependencies": {
+        "@proton/vert": "0.3.24",
+        "@types/chai": "4.3.12",
+        "@types/mocha": "10.0.6",
+        "@types/node": "20.10.6",
+        "chai": "5.1.0",
+        "husky": "9.0.11",
+        "mocha": "10.3.0",
+        "prettier": "3.2.5",
+        "proton-tsc": "0.3.58",
+        "ts-node": "10.9.2",
+        "typescript": "5.3.3",
+        "yarn-run-all": "3.1.1"
+    }
+}

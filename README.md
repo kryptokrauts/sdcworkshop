@@ -25,19 +25,19 @@ A paper will be handed out to each particpant that contains 2 QR codes:
 ### Development of Smart Contracts (Homework)
 A total amount of `900000.0000 XPR` is reserved to be claimed by workshop participants.
 
-Workshop participants can develop a Smart Contract that must execute a specific logic in order to trigger the [reward-contract](./reward-contract) deployed at [sdcworkshop](https://explorer.xprnetwork.org/account/sdcworkshop?loadContract=true&tab=Tables&limit=100) account. An equal share of the XPR reward pool will be distributed to each developer who executes the action on their deployed contract that fullfils the requirement.
+Workshop participants can develop a Smart Contract that must execute a specific logic in order to trigger the [xpr-reward-pool](./reward-contracts/xpr-reward-pool) contract deployed at [sdcworkshop](https://explorer.xprnetwork.org/account/sdcworkshop?loadContract=true&tab=Tables&limit=100) account. An equal share of the XPR reward pool will be distributed to each developer who executes the action on their deployed contract that fullfils the requirement.
 
 The solution needs to be implemented, deployed and executed within 30 days after the workshop. Eligibility to claim ends exactly at unix timestamp `1713180600` (Monday, 15 April 2024, 13:30:00).
 
 Following steps are required in order to allow participants to claim the XPR reward:
 1. Developer [registers here](../../issues/new?assignees=marc0olo&labels=registration&projects=&template=register-for-reward.yaml&title=%5BREGISTER%5D%3A+<xpr+account>) for the reward task.
-1. Workshop facilitator adds the XPR account of the developer to the list of eligible developers in the [reward-contract](./reward-contract) deployed at the [sdcworkshop](https://explorer.xprnetwork.org/account/sdcworkshop?loadContract=true&tab=Tables&limit=100) account.
-1. Developer forks this repository and implements the missing logic in the [homework-contract](./homework-contract) which is required to claim the share of the reward pool.
-1. (Optional, recommended) Developer provides a separate account where the homework contract which is used to claim the reward will be deployed at.
+1. Workshop facilitator adds the XPR account of the developer to the list of eligible developers in the [xpr-reward-pool](./reward-contracts/xpr-reward-pool) contract deployed at the [sdcworkshop](https://explorer.xprnetwork.org/account/sdcworkshop?loadContract=true&tab=Tables&limit=100) account.
+1. Developer forks this repository and implements the missing logic in the [homework](./reward-contracts/homework) contract which is required to claim the share of the reward pool.
+1. Developer provides a separate account where the homework-claim-contract which is used to claim the reward will be deployed at.
     - It is recommended to set up a separate account via CLI which is used to deploy the contract.
-    - This can be done by calling the [`setctacc`](https://explorer.xprnetwork.org/account/sdcworkshop?loadContract=true&tab=Actions&limit=100&action=setctacc) action.
-1. Developer deploys the homework-contract at the registered (or separate, self-defined) account which should be used to claim the reward.
-1. Developer performs a transaction with the homework-contract action that will trigger the claim and distribute the XPR to the account of the homework-contract.
+    - This can be done by calling the [`setcontract`](https://explorer.xprnetwork.org/account/sdcworkshop?loadContract=true&tab=Actions&limit=100&action=setctacc) action.
+1. Developer deploys the homework-contract at the provided account which should be used to claim the reward.
+1. Developer performs an action of the homework-contract that will trigger the claim and distribute the XPR to the account of the homework-claim-contract.
 
 #### Note
 - Join the [Developer Chat](https://t.me/XPRNetwork/935158) on Telegram to ask questions related to Smart Contract development.
