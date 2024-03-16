@@ -70,12 +70,14 @@ class XprRewardPool extends Contract {
         check(global.claimEnabled, 'claim period not started');
         check(currentTimeSec() <= global.claimPeriodEnd, 'claim period expired');
         const dev = this.developers.requireGet(account.N, 'unknown dev');
-        check(dev.claimContract == getSender(), 'invalid sender contract');
+        // getSender() = claim contract (homework) that calls this contract via InlineAction
+        const claimContract = getSender();
+        check(dev.claimContract == claimContract, 'invalid sender contract');
         // store timestamp in dev table
         dev.timestamp = currentTimeSec();
         this.developers.set(dev, this.contract);
         // InlineAction to send notification to calling contract
-        sendCanClaim(this.contract, account, getSender());
+        sendCanClaim(this.contract, account, claimContract);
     }
 
     // action to send notification to claimContract
@@ -89,6 +91,7 @@ class XprRewardPool extends Contract {
     onClaimReward(account: Name, timestamp: u64): void {
         const dev = this.developers.requireGet(account.N, 'unknown dev');
         check(!dev.rewardClaimed, 'reward already claimed');
+        // firstReceiver = claimContract that sent the notification
         check(dev.claimContract == this.firstReceiver, 'invalid notifier contract');
         check(timestamp == dev.timestamp && timestamp == currentTimeSec(), 'invalid timestamp');
         const global = this.globalSingleton.get();
