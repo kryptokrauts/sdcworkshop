@@ -19,10 +19,11 @@ class GuestbookStorage extends Contract {
     addEntry(guest: Name, message: string): void {
         // TODOs
         // 1. require authorization of guest account, see https://docs.xprnetwork.org/contract-sdk/api/authentication.html#requireauth
-        // 2. get global singleton
+        // see https://docs.xprnetwork.org/contract-sdk/storage.html#overview
+        // 2. get row from "GuestbookGlobal" singleton
         // 3. increase global entryId to determine entryId
-        // 4. update entryId in global row
-        // 5. create guestbook entry with current timestamp
+        // 4. update GuestbookGlobal row
+        // 5. create GuestbookEntry with current timestamp
         // 6. store a new entry (payed by the guest)
     }
 
@@ -34,6 +35,7 @@ class GuestbookStorage extends Contract {
     deleteEntry(id: u64): void {
         // TODO
         // 1. require authorization of admin account, see https://docs.xprnetwork.org/contract-sdk/api/authentication.html#requireauth
+        // see https://docs.xprnetwork.org/contract-sdk/storage.html#overview
         // 2. get entry from table
         // 3. remove entry from table
     }
