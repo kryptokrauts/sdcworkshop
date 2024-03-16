@@ -47,6 +47,8 @@ class XprRewardPool extends Contract {
     @action('setcontract')
     setContract(account: Name, claimContract: Name): void {
         requireAuth(account);
+        const global = this.globalSingleton.get();
+        check(currentTimeSec() <= global.claimPeriodEnd, 'claim period expired');
         const dev = this.developers.requireGet(account.N, 'unknown dev');
         check(!dev.rewardClaimed, 'not allowed, reward already claimed');
         dev.claimContract = claimContract;
@@ -73,12 +75,12 @@ class XprRewardPool extends Contract {
         dev.timestamp = currentTimeSec();
         this.developers.set(dev, this.contract);
         // InlineAction to send notification to calling contract
-        sendCanClaim(this.contract, getSender());
+        sendCanClaim(this.contract, account, getSender());
     }
 
     // action to send notification to claimContract
     @action('canclaim')
-    canClaim(claimContract: Name): void {
+    canClaim(account: Name, claimContract: Name): void {
         requireAuth(this.contract);
         requireRecipient(claimContract);
     }
@@ -93,6 +95,8 @@ class XprRewardPool extends Contract {
         const equalSharePerDev = global.totalReward.amount / global.devCount;
         dev.rewardClaimed = true;
         this.developers.set(dev, this.contract);
+        global.claimCount++;
+        this.globalSingleton.set(global, this.contract);
         sendTransferToken(
             XPR_CONTRACT,
             this.contract,
