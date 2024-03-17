@@ -92,7 +92,7 @@ yarn build:tknreceiver && yarn test:tknreceiver
 
 5. Call Action
     ```
-    proton action wshellotest1 sayhello 'wshellotest1' wshellotest1@active
+    proton action wshellotest1 sayhello '{"account": "wshellotest1"}' wshellotest1@active
     ```
 
 ## Via Explorer
